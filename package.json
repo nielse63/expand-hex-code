@@ -1,0 +1,45 @@
+{
+  "name": "expand-hex-code",
+  "version": "1.0.0",
+  "description": "Expand hex codes from three to six digits",
+  "main": "index.js",
+  "repository": "https://github.com/nielse63/expand-hex-code",
+  "author": {
+    "name": "Erik Nielsen",
+    "email": "erik@312development.com",
+    "url": "https://312development.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/nielse63/expand-hex-code",
+  "keywords": [],
+  "bugs": "https://github.com/nielse63/expand-hex-code/issues",
+  "scripts": {
+    "lint": "eslint src ./*.js --ignore-pattern '!.eslintrc.js'",
+    "lint-fix": "npm run lint -- --fix",
+    "minify": "uglifyjs lib/expand-hex-code.js -m -c -o lib/expand-hex-code.min.js",
+    "rollup": "rollup --input lib/expand-hex-code.js --format umd --output lib/expand-hex-code.js",
+    "prebuild": "npm run lint && rm -rf lib",
+    "build": "babel src -d lib --source-maps inline",
+    "postbuild": "npm run rollup && npm run minify",
+    "pretest": "rm -rf .nyc_output coverage *.log",
+    "test": "nyc mocha test/index.js",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.24.1",
+    "chai": "^4.0.2",
+    "chai-asserttype": "^1.0.5",
+    "coveralls": "^2.13.1",
+    "eslint": "^4.1.1",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.7.0",
+    "mocha": "^3.4.2",
+    "nyc": "^11.0.3",
+    "rollup": "^0.43.0",
+    "uglify-js": "^3.0.24"
+  }
+}
