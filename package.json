@@ -11,7 +11,12 @@
   },
   "license": "MIT",
   "homepage": "https://github.com/nielse63/expand-hex-code",
-  "keywords": [],
+  "keywords": [
+    "css",
+    "hex",
+    "code",
+    "expand"
+  ],
   "bugs": "https://github.com/nielse63/expand-hex-code/issues",
   "scripts": {
     "lint": "eslint src ./*.js --ignore-pattern '!.eslintrc.js'",
