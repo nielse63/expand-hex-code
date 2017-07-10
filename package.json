@@ -24,7 +24,7 @@
     "pretest": "rm -rf .nyc_output coverage *.log",
     "test": "nyc mocha test/index.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "prepublishOnly": "npm run build && npm test"
+    "prepublishOnly": "npm test && npm run build"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
