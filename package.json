@@ -1,6 +1,6 @@
 {
   "name": "expand-hex-code",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Expand hex codes from three to six digits",
   "main": "index.js",
   "repository": "https://github.com/nielse63/expand-hex-code",
