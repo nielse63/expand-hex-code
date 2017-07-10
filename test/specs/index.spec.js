@@ -45,12 +45,12 @@ export default function IndexSpec() {
 
     describe('happy path', () => {
       let i = 0;
-      while (i < 10) {
+      while (i < 14) {
         let hex = Math.floor(Math.random() * 16777215).toString(16);
         if (i % 2 === 0) {
           hex = `#${hex}`;
         }
-        if (hex.length > 5) {
+        if (hex.replace(/#/, '').length > 5) {
           it(`should be true (${hex})`, () => {
             expect(
               isHexCode(hex),
