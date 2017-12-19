@@ -1,10 +1,15 @@
 {
   "presets": [
-    ["env", {
-      "targets": {
-        "browsers": ["last 2 versions", "> 2%"],
-        "node": true
-      }
-    }]
-  ]
+    ["env", { "modules": false }],
+    "stage-2"
+  ],
+  "env": {
+    "test": {
+      "presets": ["env", "stage-2"],
+      "plugins": [ "istanbul" ]
+    },
+    "production": {
+      "presets": ["env", "stage-2"]
+    }
+  }
 }

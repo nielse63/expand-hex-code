@@ -28,13 +28,13 @@ yarn add expand-hex-code
 Reference your local script:
 
 ```html
-<script src="node_modules/expand-hex-code/lib/expand-hex-code.min.js"></script>
+<script src="node_modules/expand-hex-code/build/expand-hex-code.min.js"></script>
 ```
 
 Or load the script via jsdelivr:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/expand-hex-code@latest/lib/expand-hex-code.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/expand-hex-code@latest/build/expand-hex-code.min.js"></script>
 ```
 
 ## Usage

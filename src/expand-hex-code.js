@@ -1,14 +1,7 @@
 
-export function isString(object) {
-  return typeof object === 'string';
-}
+const { isString, isHexCode } = require('./utils');
 
-export function isHexCode(string = '') {
-  const hex = `#${String(string).replace(/#/g, '')}`;
-  return /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(hex);
-}
-
-export default function expandHexCode(string = '') {
+module.exports = function expandHexCode(string = '') {
   if (!isString(string)) {
     throw new TypeError('Input is not a string');
   }
@@ -21,4 +14,4 @@ export default function expandHexCode(string = '') {
     return `#${noHash}`;
   }
   return `#${noHash[0]}${noHash[0]}${noHash[1]}${noHash[1]}${noHash[2]}${noHash[2]}`.toLowerCase();
-}
+};
