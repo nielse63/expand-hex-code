@@ -1,7 +1,4 @@
 {
-  "require": [
-    "babel-register"
-  ],
   "sourceMap": true,
   "reporter": [
     "lcov",
