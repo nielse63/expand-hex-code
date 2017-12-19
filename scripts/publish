@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+yarn run test
+yarn run build
+yarn version minor
+git push --tags
+npm publish
