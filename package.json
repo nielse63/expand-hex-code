@@ -26,10 +26,10 @@
     "build": "yarn run build:dev && yarn run build:prod",
     "pretest": "rm -rf .nyc_output coverage *.log",
     "test": "nyc mocha test/specs/*.spec.js",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "prepublishOnly": "yarn test && yarn run build"
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.2",
     "babel-plugin-istanbul": "^4.1.5",
