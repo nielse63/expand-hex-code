@@ -14,5 +14,13 @@ module.exports = function expandHexCode(string: string = ''): string {
   if (noHash.length > 3) {
     return `#${noHash}`;
   }
-  return `#${noHash[0]}${noHash[0]}${noHash[1]}${noHash[1]}${noHash[2]}${noHash[2]}`.toLowerCase();
+  const noHashArray = [
+    noHash[0],
+    noHash[0],
+    noHash[1],
+    noHash[1],
+    noHash[2],
+    noHash[2],
+  ];
+  return `#${noHashArray.join('')}`.toLowerCase();
 };
