@@ -36,8 +36,7 @@ function run(cmd) {
       await run("git commit -m 'build(scripts/release): Created new release files'")
       const branchName = require('current-git-branch')();
       await run(`git push -u origin ${branchName}`);
-      const output = await run('npx unleash -p -d')
-      console.log(output)
+      console.log('Complete!')
     });
   } catch(e) {
     console.error(e);

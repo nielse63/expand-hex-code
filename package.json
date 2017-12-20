@@ -41,7 +41,8 @@
     "commitmsg": "validate-commit-msg",
     "precommit": "lint-staged",
     "prepush": "nsp check",
-    "release": "unleash -p -d"
+    "create-release": "scripts/release",
+    "release": "unleash -p"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
