@@ -28,7 +28,7 @@
   },
   "main": "lib/expand-hex-code.js",
   "files": [
-    "src/"
+    "lib/"
   ],
   "directories": {
     "lib": "./lib"
@@ -36,22 +36,19 @@
   "scripts": {
     "lint": "eslint src/ test/ --cache --fix",
     "build": "cross-env NODE_ENV=production babel src/ -d lib/",
-    "pretest": "npm run lint && npm run build",
     "test": "nyc mocha test/specs/*.spec.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "postinstall": "npm run build",
     "commitmsg": "validate-commit-msg",
     "precommit": "lint-staged",
-    "prepush": "nsp check"
+    "prepush": "nsp check",
+    "release": "unleash -p -d"
   },
-  "dependencies": {
+  "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-stage-2": "^6.24.1",
-    "cross-env": "^5.1.1"
-  },
-  "devDependencies": {
+    "cross-env": "^5.1.1",
     "babel-eslint": "^8.0.3",
     "babel-plugin-istanbul": "^4.1.5",
     "chai": "^4.1.1",
@@ -72,6 +69,7 @@
     "nsp": "^3.1.0",
     "nyc": "^11.4.1",
     "prettier": "^1.9.2",
+    "staged-git-files": "^0.0.4",
     "unleash": "^2.0.1",
     "validate-commit-msg": "^2.14.0"
   },

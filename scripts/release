@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+
+const { exec } = require('child_process');
+var sgf = require("staged-git-files");
+
+function run(cmd) {
+  console.log(`Running ${cmd}`)
+  return new Promise((resolve, reject) => {
+    exec(cmd, (error, stdout, stderr) => {
+      if(error) {
+        reject(stderr.trim());
+      } else {
+        console.log('Complete');
+        resolve(stdout.trim());
+      }
+    })
+  })
+}
+
+(async () => {
+  try {
+    // build and test
+    await run('npx eslint src/ --fix')
+    await run('npx cross-env NODE_ENV=production babel src/ -d lib/')
+    await run('npm run test')
+
+    // stage files
+    await run('git add -A')
+    sgf((err, results) => {
+      if(err) { throw err; }
+      console.log(results)
+    });
+  } catch(e) {
+    console.error(e);
+  }
+})()
+
+// # commit changes
+// git commit -m 'build(lib): Created new release files'
+// git push
+
+// # publish to npm
+// npx unleash -p -d
