@@ -27,16 +27,16 @@ function run(cmd) {
 
     // stage files
     await run('git add -A')
-    sgf((err, results) => {
+    sgf(async (err, results) => {
       if(err) { throw err; }
       if(!results.length) {
         console.log('No files staged. Nothing to release');
         process.exit();
       }
-      run("git commit -m 'build(scripts/release): Created new release files'")
+      await run("git commit -m 'build(scripts/release): Created new release files'")
       const branchName = require('current-git-branch')();
-      run(`git push -u origin ${branchName}`);
-      const output = run('npx unleash -p -d')
+      await run(`git push -u origin ${branchName}`);
+      const output = await run('npx unleash -p -d')
       console.log(output)
     });
   } catch(e) {
