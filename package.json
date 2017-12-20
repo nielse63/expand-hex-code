@@ -26,7 +26,10 @@
     "pretest": "yarn run build",
     "test": "nyc mocha test/specs/*.spec.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "prepublishOnly": "yarn run build"
+    "prepublishOnly": "yarn run build",
+    "commitmsg": "validate-commit-msg",
+    "precommit": "yarn run lint",
+    "prepush": "yarn test"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -37,14 +40,17 @@
     "babel-preset-stage-2": "^6.24.1",
     "chai": "^4.1.1",
     "chai-asserttype": "^1.0.5",
+    "conventional-commit-types": "^2.2.0",
     "coveralls": "^2.13.1",
     "eslint": "^4.5.0",
     "eslint-config-airbnb-base": "^11.3.2",
     "eslint-plugin-flowtype": "^2.40.1",
     "eslint-plugin-import": "^2.7.0",
     "flow-bin": "^0.61.0",
+    "husky": "^0.14.3",
     "mocha": "^3.5.0",
-    "nyc": "^11.1.0"
+    "nyc": "^11.1.0",
+    "validate-commit-msg": "^2.14.0"
   },
   "engines": {
     "node": ">= 8.x",
@@ -55,5 +61,13 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "config": {
+    "validate-commit-msg": {
+      "types": "conventional-commit-types",
+      "subjectPatternErrorMsg": "[validate-commit-msg]: Subject does not match subject pattern!",
+      "autoFix": true
+    }
+  },
+  "dependencies": {}
 }
