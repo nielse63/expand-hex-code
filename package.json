@@ -28,7 +28,7 @@
   },
   "main": "lib/expand-hex-code.js",
   "files": [
-    "lib/"
+    "src/"
   ],
   "directories": {
     "lib": "./lib"
