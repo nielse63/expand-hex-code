@@ -11,7 +11,7 @@
     "email": "erik@312development.com",
     "url": "https://312development.com"
   },
-  "license" : {
+  "license": {
     "type": "MIT",
     "url": "https://opensource.org/licenses/MIT"
   },
@@ -37,21 +37,21 @@
     "clean": "./scripts/clean",
     "lint": "eslint src/ test/ --cache --fix",
     "changelog": "github-changes -o nielse63 -r ${npm_package_name} -n ${npm_package_version} --only-pulls --use-commit-body",
-    "prebuild": "yarn run lint && yarn run clean",
+    "prebuild": "npm run lint && npm run clean",
     "build": "babel src/ -d lib/",
-    "pretest": "yarn run build",
+    "pretest": "npm run build",
     "test": "nyc mocha test/specs/*.spec.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "preversion": "yarn test",
-    "version": "yarn run changelog && git add CHANGELOG.md",
-    "prepublishOnly": "yarn run build",
+    "preversion": "npm test",
+    "version": "npm run changelog && git add CHANGELOG.md",
+    "prepublishOnly": "npm run build",
     "commitmsg": "validate-commit-msg",
-    "precommit": "yarn run lint",
-    "prepush": "yarn test"
+    "precommit": "npm run lint",
+    "prepush": "npm test"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-eslint": "^7.2.3",
+    "babel-eslint": "^8.0.3",
     "babel-plugin-istanbul": "^4.1.5",
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
@@ -59,7 +59,7 @@
     "chai": "^4.1.1",
     "chai-asserttype": "^1.0.5",
     "conventional-commit-types": "^2.2.0",
-    "coveralls": "^2.13.1",
+    "coveralls": "^3.0.0",
     "eslint": "^4.5.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-xo": "^0.19.0",
@@ -70,8 +70,8 @@
     "github-changes": "^1.1.1",
     "husky": "^0.14.3",
     "markdownlint-cli": "^0.5.0",
-    "mocha": "^3.5.0",
-    "nyc": "^11.1.0",
+    "mocha": "^4.0.1",
+    "nyc": "^11.4.1",
     "prettier": "^1.9.2",
     "validate-commit-msg": "^2.14.0"
   },
