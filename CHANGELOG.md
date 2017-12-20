@@ -1,5 +1,7 @@
-<!-- markdownlint-disable -->
 ## Change Log
+
+### 1.2.0 (2017/12/20 16:23 +00:00)
+- [#4](https://github.com/nielse63/expand-hex-code/pull/4) Feature/update build process (@nielse63)
 
 ### v1.1.0 (2017/12/19 23:13 +00:00)
 - [#3](https://github.com/nielse63/expand-hex-code/pull/3) Feature/add autoclean (@nielse63)
