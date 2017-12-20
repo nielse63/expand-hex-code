@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 ## Change Log
 
 ### v1.1.0 (2017/12/19 23:13 +00:00)
