@@ -1,6 +1,6 @@
 {
   "name": "expand-hex-code",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Expand hex codes from three to six digits",
   "repository": {
     "type": "git",
