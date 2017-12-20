@@ -2,14 +2,19 @@
   "name": "expand-hex-code",
   "version": "1.1.0",
   "description": "Expand hex codes from three to six digits",
-  "main": "lib/expand-hex-code.js",
-  "repository": "https://github.com/nielse63/expand-hex-code",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nielse63/expand-hex-code"
+  },
   "author": {
     "name": "Erik Nielsen",
     "email": "erik@312development.com",
     "url": "https://312development.com"
   },
-  "license": "MIT",
+  "license" : {
+    "type": "MIT",
+    "url": "https://opensource.org/licenses/MIT"
+  },
   "homepage": "https://github.com/nielse63/expand-hex-code",
   "keywords": [
     "css",
@@ -17,7 +22,17 @@
     "code",
     "expand"
   ],
-  "bugs": "https://github.com/nielse63/expand-hex-code/issues",
+  "bugs": {
+    "url": "https://github.com/nielse63/expand-hex-code/issues",
+    "email": "erik@312development.com"
+  },
+  "main": "lib/expand-hex-code.js",
+  "files": [
+    "lib/"
+  ],
+  "directories": {
+    "lib": "./lib"
+  },
   "scripts": {
     "clean": "./scripts/clean",
     "lint": "eslint src/ test/ --cache --fix",
