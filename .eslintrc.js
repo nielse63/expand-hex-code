@@ -12,18 +12,24 @@ module.exports = {
     es6: true,
   },
   extends: [
-    'airbnb-base',
+    'xo/esnext',
+    'plugin:flowtype/recommended',
+    'prettier',
+    'prettier/flowtype',
   ],
+  plugins: ['import', 'flowtype', 'prettier'],
   rules: {
-    'comma-dangle': ['error', {
-      arrays: 'always-multiline',
-      objects: 'always-multiline',
-      imports: 'always-multiline',
-      exports: 'always-multiline',
-      functions: 'ignore',
-    }],
-
-    // import rules
-    'import/no-extraneous-dependencies': ['error', { devDependencies: ['test/**/*.js', 'config/**/*.js'] }],
+    'func-names': ['error', 'always'],
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+        trailingComma: 'all',
+      },
+    ],
+    'import/no-extraneous-dependencies': [
+      'error',
+      { devDependencies: ['test/**/*.js'] },
+    ],
   },
 };

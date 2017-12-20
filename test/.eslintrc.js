@@ -8,6 +8,6 @@ module.exports = {
   },
   rules: {
     'no-unused-expressions': 'off',
-    'import/no-unresolved': ['error', { ignore: ['lib\/'] }],
+    'import/no-unresolved': ['error', { ignore: ['lib/'] }],
   },
 };

@@ -1,4 +1,3 @@
-
 const { isString, isHexCode } = require('../../lib/utils');
 const { objects } = require('../shared');
 
@@ -12,29 +11,24 @@ describe('#isString', () => {
   });
 
   describe('happy path', () => {
-    strings.forEach((string) => {
+    strings.forEach(string => {
       it('should be true', () => {
-        expect(
-          isString(string),
-        ).to.be.true;
+        expect(isString(string)).to.be.true;
       });
     });
   });
 
   describe('sad path', () => {
-    objects.forEach((object) => {
+    objects.forEach(object => {
       it('should be false', () => {
-        expect(
-          isString(object),
-        ).to.be.false;
+        expect(isString(object)).to.be.false;
       });
     });
   });
 });
 
 describe('#isHexCode', () => {
-  before(() => {
-  });
+  before(() => {});
 
   describe('sanity', () => {
     it('should be a function', () => {
@@ -51,9 +45,7 @@ describe('#isHexCode', () => {
       }
       if (hex.replace(/#/, '').length > 5) {
         it(`should be true (${hex})`, () => {
-          expect(
-            isHexCode(hex),
-          ).to.be.true;
+          expect(isHexCode(hex)).to.be.true;
         });
       }
       i += 1;
@@ -61,18 +53,14 @@ describe('#isHexCode', () => {
   });
 
   describe('sad path', () => {
-    objects.forEach((object) => {
+    objects.forEach(object => {
       it('should be false', () => {
-        expect(
-          isHexCode(object),
-        ).to.be.false;
+        expect(isHexCode(object)).to.be.false;
       });
     });
 
     it('should be false for no parameter', () => {
-      expect(
-        isHexCode(),
-      ).to.be.false;
+      expect(isHexCode()).to.be.false;
     });
   });
 });
