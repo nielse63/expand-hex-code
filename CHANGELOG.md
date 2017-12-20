@@ -1,3 +1,12 @@
+<a name="1.2.1"></a>
+### 1.2.1 (2017-12-20)
+
+
+#### Bug Fixes
+
+* updated gitignore ([b5f1ec54](https://github.com/nielse63/expand-hex-code/commit/b5f1ec54))
+
+
 ## Change Log
 
 ### 1.2.0 (2017/12/20 16:23 +00:00)
