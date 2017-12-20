@@ -1,15 +1,15 @@
 {
   "presets": [
-    ["env", { "modules": false }],
-    "stage-2"
+    ["env", {
+      "modules": false,
+      "targets": { "node": true }
+    }],
+    "stage-2", "flow"
   ],
   "env": {
     "test": {
-      "presets": ["env", "stage-2"],
+      "presets": ["env", "stage-2", "flow"],
       "plugins": [ "istanbul" ]
-    },
-    "production": {
-      "presets": ["env", "stage-2"]
     }
   }
 }

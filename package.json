@@ -2,14 +2,19 @@
   "name": "expand-hex-code",
   "version": "1.1.0",
   "description": "Expand hex codes from three to six digits",
-  "main": "index.js",
-  "repository": "https://github.com/nielse63/expand-hex-code",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nielse63/expand-hex-code"
+  },
   "author": {
     "name": "Erik Nielsen",
     "email": "erik@312development.com",
     "url": "https://312development.com"
   },
-  "license": "MIT",
+  "license": {
+    "type": "MIT",
+    "url": "https://opensource.org/licenses/MIT"
+  },
   "homepage": "https://github.com/nielse63/expand-hex-code",
   "keywords": [
     "css",
@@ -17,45 +22,69 @@
     "code",
     "expand"
   ],
-  "bugs": "https://github.com/nielse63/expand-hex-code/issues",
+  "bugs": {
+    "url": "https://github.com/nielse63/expand-hex-code/issues",
+    "email": "erik@312development.com"
+  },
+  "main": "lib/expand-hex-code.js",
+  "files": [
+    "lib/"
+  ],
+  "directories": {
+    "lib": "./lib"
+  },
   "scripts": {
-    "lint": "eslint src/ test/ config/ ./*.js --ignore-pattern '!.eslintrc.js'",
-    "prebuild": "yarn run lint --fix && rm -rf build/",
-    "build:dev": "cross-env NODE_ENV=development webpack --config config/webpack.dev.config.js",
-    "build:prod": "cross-env NODE_ENV=production webpack --config config/webpack.prod.config.js",
-    "build": "yarn run build:dev && yarn run build:prod",
-    "pretest": "rm -rf .nyc_output coverage *.log",
+    "clean": "./scripts/clean",
+    "lint": "eslint src/ test/ --cache --fix",
+    "changelog": "github-changes -o nielse63 -r ${npm_package_name} -n ${npm_package_version} --only-pulls --use-commit-body",
+    "prebuild": "npm run lint && npm run clean",
+    "build": "babel src/ -d lib/",
+    "pretest": "npm run build",
     "test": "nyc mocha test/specs/*.spec.js",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "preversion": "npm test",
+    "version": "npm run changelog && git add CHANGELOG.md",
+    "prepublishOnly": "npm run build",
+    "commitmsg": "validate-commit-msg",
+    "precommit": "npm run lint",
+    "prepush": "npm test"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^7.2.3",
-    "babel-loader": "^7.1.2",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.3",
     "babel-plugin-istanbul": "^4.1.5",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-stage-2": "^6.24.1",
     "chai": "^4.1.1",
     "chai-asserttype": "^1.0.5",
-    "coveralls": "^2.13.1",
-    "cross-env": "^5.1.1",
+    "conventional-commit-types": "^2.2.0",
+    "coveralls": "^3.0.0",
     "eslint": "^4.5.0",
-    "eslint-config-airbnb-base": "^11.3.2",
-    "eslint-loader": "^1.9.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-xo": "^0.19.0",
+    "eslint-plugin-flowtype": "^2.40.1",
     "eslint-plugin-import": "^2.7.0",
-    "mocha": "^3.5.0",
-    "nyc": "^11.1.0",
-    "webpack": "^3.10.0",
-    "webpack-merge": "^4.1.1"
+    "eslint-plugin-prettier": "^2.4.0",
+    "flow-bin": "^0.61.0",
+    "github-changes": "^1.1.1",
+    "husky": "^0.14.3",
+    "markdownlint-cli": "^0.5.0",
+    "mocha": "^4.0.1",
+    "nyc": "^11.4.1",
+    "prettier": "^1.9.2",
+    "validate-commit-msg": "^2.14.0"
   },
   "engines": {
     "node": ">= 8.x",
     "npm": ">= 5.x",
     "yarn": ">= 1.x"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  "config": {
+    "validate-commit-msg": {
+      "types": "conventional-commit-types",
+      "subjectPatternErrorMsg": "[validate-commit-msg]: Subject does not match subject pattern!",
+      "autoFix": true
+    }
+  }
 }

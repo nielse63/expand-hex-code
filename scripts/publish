@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-yarn run test
-yarn run build
-npm version minor
-git push --tags
-npm publish
-git push --tags

@@ -23,20 +23,6 @@ npm install expand-hex-code
 yarn add expand-hex-code
 ```
 
-### In the browser
-
-Reference your local script:
-
-```html
-<script src="node_modules/expand-hex-code/build/expand-hex-code.min.js"></script>
-```
-
-Or load the script via jsdelivr:
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/expand-hex-code@latest/build/expand-hex-code.min.js"></script>
-```
-
 ## Usage
 
 ### In a node project
@@ -44,24 +30,17 @@ Or load the script via jsdelivr:
 Import the script to your project
 
 ```js
-import expandHexCode from 'expand-hex-code';
-```
-
-or using ES5 syntax:
-
-```js
-const expandHexCode = require('expand-hex-code');
+import expandHexCode from "expand-hex-code";
+// or
+const expandHexCode = require("expand-hex-code");
 ```
 
 And execute the script:
 
 ```js
-const hexCode = expandHexCode('#000');
-// #000000
-const hexCode = expandHexCode('#cb0');
-// #ccbb00
-const hexCode = expandHexCode('#ffffff');
-// #ffffff
+const hexCode = expandHexCode("#000"); // #000000
+const hexCode = expandHexCode("#cb0"); // #ccbb00
+const hexCode = expandHexCode("#ffffff"); // #ffffff
 ```
 
 ## Contributing
@@ -78,11 +57,7 @@ Once you've made your desired changes, make sure to write any new tests for
 your feature and run the tests:
 
 ```sh
-yarn run lint # lints js
-
-yarn test     # runs test suite
+yarn test
 ```
 
 If all tests pass, [create a pull request](https://github.com/nielse63/expand-hex-code/pulls).
-
-
