@@ -28,7 +28,7 @@
   },
   "main": "lib/expand-hex-code.js",
   "files": [
-    "lib/"
+    "src/"
   ],
   "directories": {
     "lib": "./lib"
@@ -37,25 +37,27 @@
     "clean": "./scripts/clean",
     "lint": "eslint src/ test/ --cache --fix",
     "changelog": "github-changes -o nielse63 -r ${npm_package_name} -n ${npm_package_version} --only-pulls --use-commit-body",
-    "prebuild": "npm run lint && npm run clean",
-    "build": "babel src/ -d lib/",
-    "pretest": "npm run build",
+    "build": "cross-env NODE_ENV=production babel src/ -d lib/",
+    "pretest": "npm run lint && npm run clean && npm run build",
     "test": "nyc mocha test/specs/*.spec.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "preversion": "npm test",
     "version": "npm run changelog && git add CHANGELOG.md",
-    "prepublishOnly": "npm run build",
+    "postinstall": "npm run build",
     "commitmsg": "validate-commit-msg",
-    "precommit": "npm run lint",
-    "prepush": "npm test"
+    "precommit": "lint-staged",
+    "prepush": "nsp check && npm test"
   },
-  "devDependencies": {
+  "dependencies": {
     "babel-cli": "^6.26.0",
-    "babel-eslint": "^8.0.3",
-    "babel-plugin-istanbul": "^4.1.5",
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-stage-2": "^6.24.1",
+    "cross-env": "^5.1.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.3",
+    "babel-plugin-istanbul": "^4.1.5",
     "chai": "^4.1.1",
     "chai-asserttype": "^1.0.5",
     "conventional-commit-types": "^2.2.0",
@@ -69,10 +71,13 @@
     "flow-bin": "^0.61.0",
     "github-changes": "^1.1.1",
     "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
     "markdownlint-cli": "^0.5.0",
     "mocha": "^4.0.1",
+    "nsp": "^3.1.0",
     "nyc": "^11.4.1",
     "prettier": "^1.9.2",
+    "unleash": "^2.0.1",
     "validate-commit-msg": "^2.14.0"
   },
   "engines": {
@@ -86,5 +91,11 @@
       "subjectPatternErrorMsg": "[validate-commit-msg]: Subject does not match subject pattern!",
       "autoFix": true
     }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
