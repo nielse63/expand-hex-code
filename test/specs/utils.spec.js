@@ -1,5 +1,5 @@
 
-const { isString, isHexCode } = require('../../src/utils');
+const { isString, isHexCode } = require('../../lib/utils');
 const { objects } = require('../shared');
 
 const strings = ['string', ''];

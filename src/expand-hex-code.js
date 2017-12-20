@@ -1,7 +1,8 @@
+// @flow
 
 const { isString, isHexCode } = require('./utils');
 
-module.exports = function expandHexCode(string = '') {
+module.exports = function expandHexCode(string: string = ''): string {
   if (!isString(string)) {
     throw new TypeError('Input is not a string');
   }

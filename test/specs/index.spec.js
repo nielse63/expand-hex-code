@@ -1,5 +1,5 @@
 
-const expandHexCode = require('../../');
+const expandHexCode = require('../../lib/expand-hex-code');
 const { objects, hexCodes } = require('../shared');
 
 describe('#expandHexCode', () => {
