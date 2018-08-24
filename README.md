@@ -5,7 +5,7 @@
 [![devDependencies Status](https://david-dm.org/nielse63/expand-hex-code/dev-status.svg)](https://david-dm.org/nielse63/expand-hex-code?type=dev)
 [![Code Climate](https://codeclimate.com/github/nielse63/expand-hex-code/badges/gpa.svg)](https://codeclimate.com/github/nielse63/expand-hex-code)
 [![NPM version](https://badge.fury.io/js/expand-hex-code.svg)](http://badge.fury.io/js/expand-hex-code)
-[![npm](https://img.shields.io/npm/dt/expand-hex-code.svg?style=flat-square)](https://www.npmjs.com/package/expand-hex-code)
+[![npm](https://img.shields.io/npm/dt/expand-hex-code.svg?style=flat-square)](https://www.npmjs.com/package/expand-hex-code) [![Greenkeeper badge](https://badges.greenkeeper.io/nielse63/expand-hex-code.svg)](https://greenkeeper.io/)
 
 Expand hex codes from three to six digits
 
