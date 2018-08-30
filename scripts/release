@@ -1,44 +1,8 @@
-#!/usr/bin/env node
-/* eslint-disable */
+#!/usr/bin/env bash
 
-const { exec } = require('child_process');
-const sgf = require("staged-git-files");
+# update changelog and docs
+npm run changelog
+npm run doc
 
-function run(cmd) {
-  console.log(`Running ${cmd}`)
-  return new Promise((resolve, reject) => {
-    exec(cmd, (error, stdout, stderr) => {
-      if(error) {
-        reject(stderr.trim());
-      } else {
-        // console.log('Complete');
-        resolve(stdout.trim());
-      }
-    })
-  })
-}
-
-(async () => {
-  try {
-    // build and test
-    await run('npx eslint src/ --fix')
-    await run('npx cross-env NODE_ENV=production babel src/ -d lib/')
-    await run('npm run test')
-
-    // stage files
-    await run('git add -A')
-    sgf(async (err, results) => {
-      if(err) { throw err; }
-      if(!results.length) {
-        console.log('No files staged. Nothing to release');
-        process.exit();
-      }
-      await run("git commit -m 'build(scripts/release): Created new release files'")
-      const branchName = require('current-git-branch')();
-      await run(`git push -u origin ${branchName}`);
-      console.log('Complete!')
-    });
-  } catch(e) {
-    console.error(e);
-  }
-})()
+# stage changes
+git add CHANGELOG.md docs/

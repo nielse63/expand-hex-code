@@ -1,4 +1,6 @@
 **/*{.,-}min.js
-build/*
-lib/*
+build/
+lib/
+doc/
+docs/
 coverage/
